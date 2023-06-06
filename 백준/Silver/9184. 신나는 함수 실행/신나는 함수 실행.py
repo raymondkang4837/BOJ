@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 def f(a,b,c):
     m = str(a)+'.'+str(b)+'.'+str(c)
 
