@@ -2,10 +2,10 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-RGB = list(map(int, input().split()))
+RGB = list(map(int, input().strip().split()))
 
 for _ in range(n-1):
-    r, g, b = map(int, input().split())
+    r, g, b = map(int, input().strip().split())
 
     RGB =  [min(RGB[1], RGB[2]) + r,
             min(RGB[0], RGB[2]) + g,
