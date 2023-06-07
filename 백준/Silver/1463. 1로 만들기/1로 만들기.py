@@ -1,20 +1,17 @@
 import sys
-input = sys.stdin.readline
 
-n = int(input())
-dp = [0] * (n+1)
-
-dp[1] = 0
-
-for i in range(2,n+1):
-    p = i%6
-    if p == 1 or p == 5:
-        dp[i] = dp[i-1] + 1
-    elif p == 2 or p == 4:
-        dp[i] = min(dp[i-1], dp[i//2]) + 1
-    elif p== 3:
-        dp[i] = min(dp[i-1], dp[i//3]) + 1
+def dp(x):
+    if x in temp:
+        return temp[x]
+    if (x % 3 == 0) and (x % 2 == 0):
+        temp[x] = min(dp(x//3)+1, dp(x//2)+1)
+    elif x % 3 == 0:
+        temp[x] = min(dp(x//3)+1, dp(x-1)+1)
+    elif x % 2 == 0:
+        temp[x] = min(dp(x//2)+1, dp(x-1)+1)
     else:
-        dp[i] = min(dp[i-1], dp[i//2], dp[i//3]) + 1
-    
-print(dp[n])
+        temp[x] = dp(x-1)+1
+    return temp[x]
+x = int(sys.stdin.readline())
+temp = {1:0}
+print(dp(x))
