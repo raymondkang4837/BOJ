@@ -1,0 +1,1 @@
+print(sum(len(set(i.split('\n')))-1 for i in ''.join([*open(0)][1:]).split('ENTER\n')))
