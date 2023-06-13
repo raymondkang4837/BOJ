@@ -1,2 +1,1 @@
-def solution(k, m, score):
-    return sum(sorted(score)[-m::-m])*m
+solution = lambda _, m, s: sum(sorted(s)[-m::-m]) * m
